@@ -17,6 +17,11 @@ body {
     overflow-x: hidden;
 }
 
+/* Melhorias para dispositivos touch */
+.touch-device {
+    -webkit-overflow-scrolling: touch;
+}
+
 .container {
     width: 100%;
     max-width: 1200px;
@@ -27,7 +32,7 @@ body {
 a {
     text-decoration: none;
     color: inherit;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease; /* Reduzido de 0.3s */
 }
 
 ul {
@@ -57,7 +62,7 @@ img {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease; /* Reduzido de 0.3s */
     cursor: pointer;
     border: 2px solid transparent;
 }
@@ -104,6 +109,14 @@ img {
     margin-bottom: 60px;
 }
 
+.section-header h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
 .section-header h2 {
     font-size: 2.5rem;
     font-weight: 800;
@@ -147,9 +160,9 @@ img {
     left: 0;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.9);
-    padding: 15px 0;
     z-index: 1000;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease; /* Reduzido de 0.3s */
+    will-change: transform; /* Melhora o desempenho de animações */
 }
 
 #header.scrolled {
@@ -163,6 +176,51 @@ img {
     /* Ensure logo, nav, icons are spaced out */
     align-items: center;
 }
+
+/* WhatsApp flutuante no header */
+.header-whatsapp {
+    background-color: #25D366;
+    color: #fff;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background-color 0.2s ease;
+    box-shadow: 0 0 10px rgba(37, 211, 102, 0.3);
+    animation: pulse 1.8s infinite;
+}
+
+.header-whatsapp:hover {
+    background-color: #1ebe5d;
+}
+
+/* Ícone dentro do botão do header */
+.header-whatsapp i {
+    font-size: 1rem;
+}
+
+/* Ícone do WhatsApp no header/footer (social-icons) */
+.social-icon i.fa-whatsapp {
+    color: #25D366;
+    transition: color 0.2s ease;
+}
+
+.social-icon:hover i.fa-whatsapp {
+    color: #fff;
+}
+
+/* Bolinha de fundo do ícone do WhatsApp */
+.social-icon {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.social-icon:hover {
+    background-color: #25D366;
+}
+
 
 .logo {
     display: flex;
@@ -210,7 +268,7 @@ img {
     width: 0;
     height: 2px;
     background-color: #0047AB;
-    transition: width 0.3s ease;
+    transition: width 0.2s ease; /* Reduzido de 0.3s */
 }
 
 .desktop-nav ul li a:hover::after,
@@ -232,7 +290,7 @@ img {
     background-color: rgba(255, 255, 255, 0.1);
     color: #FFFFFF;
     margin-left: 10px;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease; /* Reduzido de 0.3s */
 }
 
 .social-icon:hover {
@@ -252,7 +310,7 @@ img {
     height: 3px;
     background-color: #FFFFFF;
     margin: 3px 0;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease; /* Reduzido de 0.3s */
 }
 
 .mobile-nav {
@@ -264,8 +322,9 @@ img {
     background-color: #000000;
     padding: 80px 20px 20px;
     z-index: 999;
-    transition: all 0.4s ease;
+    transition: all 0.3s ease; /* Reduzido de 0.4s */
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* Melhora o scroll em iOS */
 }
 
 .mobile-nav.active {
@@ -316,6 +375,13 @@ img {
     display: flex;
     align-items: center;
     color: #FFFFFF;
+}
+
+/* Desativa background-attachment: fixed em dispositivos móveis para melhor desempenho */
+@media (max-width: 768px) {
+    #hero {
+        background-attachment: scroll;
+    }
 }
 
 #hero .overlay {
@@ -418,7 +484,7 @@ img {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    transition: all 0.2s ease; /* Reduzido de 0.3s */
 }
 
 .service-card:hover {
@@ -435,7 +501,7 @@ img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: all 0.5s ease;
+    transition: all 0.3s ease; /* Reduzido de 0.5s */
 }
 
 .service-card:hover .service-img img {
@@ -615,7 +681,7 @@ img {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    transition: all 0.2s ease; /* Reduzido de 0.3s */
     color: #000000;
 }
 
@@ -690,7 +756,7 @@ img {
 }
 
 .plano-card.featured .plano-footer {
-    border-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(0, 0, 0, 0.1);
 }
 
 .plano-footer .btn {
@@ -715,6 +781,13 @@ img {
     margin: 0 auto 50px;
 }
 
+.footer-separator {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-bottom: 40px;
+}
+
 /* Ajustes no container principal do slider */
 .depoimentos-slider {
     position: relative;
@@ -727,8 +800,9 @@ img {
 /* Container que vai deslizar */
 .depoimentos-track {
     display: flex;
-    transition: transform 0.5s ease;
+    transition: transform 0.3s ease; /* Reduzido de 0.5s */
     width: 100%;
+    will-change: transform; /* Melhora o desempenho de animações */
 }
 
 /* Ajustes nos cards para ficarem lado a lado */
@@ -737,7 +811,7 @@ img {
     min-width: 300px;
     padding: 0 15px;
     box-sizing: border-box;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.2s ease; /* Reduzido de 0.3s */
 }
 
 .depoimento-content {
@@ -786,7 +860,7 @@ img {
     color: #333;
     cursor: pointer;
     padding: 5px 15px;
-    transition: color 0.3s ease;
+    transition: color 0.2s ease; /* Reduzido de 0.3s */
 }
 
 .prev-btn:hover,
@@ -807,7 +881,7 @@ img {
     background-color: #ccc;
     margin: 0 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.2s ease; /* Reduzido de 0.3s */
 }
 
 .dot.active {
@@ -825,6 +899,25 @@ img {
     .depoimento-card {
         flex: 0 0 100%;
     }
+    
+    /* Botões de navegação maiores para facilitar o toque */
+    .prev-btn, .next-btn {
+        padding: 10px 20px;
+        font-size: 1.8rem;
+    }
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.footer-content > div {
+    flex: 1 1 280px;
 }
 
 
@@ -847,7 +940,7 @@ img {
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease; /* Reduzido de 0.3s */
 }
 
 .faq-question:hover {
@@ -867,322 +960,230 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.faq-icon i {
-    transition: all 0.3s ease;
-}
-
-.faq-item.active .faq-icon {
-    background-color: #FFFFFF;
-    color: #0047AB;
-}
-
-.faq-item.active .faq-icon i {
-    transform: rotate(45deg);
+    transition: all 0.2s ease; /* Reduzido de 0.3s */
 }
 
 .faq-answer {
-    background-color: #FFFFFF;
-    color: #000000;
-    padding: 0;
+    padding: 0 20px;
     max-height: 0;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out; /* Mantido para suavidade */
 }
 
 .faq-item.active .faq-answer {
-    padding: 20px;
-    max-height: 1000px;
+    max-height: 200px; /* Valor ajustável conforme o conteúdo */
+    padding: 20px; /* Adiciona padding quando ativo */
+    transition: max-height 0.3s ease-in, padding 0.3s ease-in;
 }
 
-/* Contato Section */
-.contato-content {
-    display: flex;
-    gap: 50px;
+.faq-item.active .faq-icon {
+    transform: rotate(180deg);
 }
 
-.contato-info {
-    flex: 1;
-}
-
-.contato-item {
-    margin-bottom: 30px;
-}
-
-.contato-item i {
-    font-size: 2rem;
-    color: #0047AB;
-    margin-bottom: 15px;
-}
-
-.contato-item h4 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-}
-
-.contato-social {
-    margin-top: 30px;
-}
-
-.contato-form {
-    flex: 1;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-family: 'Montserrat', sans-serif;
+.faq-answer p {
     font-size: 1rem;
-    transition: all 0.3s ease;
+    line-height: 1.6;
+    color: #666;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: #0047AB;
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(0, 71, 171, 0.1);
+.bg-dark .faq-question {
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
-.form-group textarea {
-    height: 150px;
-    resize: vertical;
+.bg-dark .faq-question:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.bg-dark .faq-answer p {
+    color: #ccc;
 }
 
 /* Footer */
 #footer {
     background-color: #000000;
     color: #FFFFFF;
-    padding: 80px 0 30px;
+    padding: 50px 0;
+    text-align: center;
 }
 
-.footer-content {
+#footer .container {
     display: flex;
-    flex-wrap: wrap;
-    gap: 50px;
-    margin-bottom: 50px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.footer-logo {
-    flex: 1;
-    min-width: 250px;
-}
-
-.footer-logo h2 {
+.footer-logo h1 {
     font-size: 1.8rem;
-    margin-bottom: 20px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
 }
 
 .footer-logo span {
     color: #0047AB;
 }
 
-.footer-links {
-    flex: 1;
-    min-width: 200px;
-}
-
-.footer-links h4,
-.footer-contact h4 {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    position: relative;
-    padding-bottom: 10px;
-}
-
-.footer-links h4::after,
-.footer-contact h4::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 50px;
-    height: 2px;
-    background-color: #0047AB;
-}
 
 .footer-links ul li {
-    margin-bottom: 10px;
+    margin: 0 15px;
+}
+
+.footer-links ul li a {
+    color: #FFFFFF;
+    font-weight: 500;
+    transition: color 0.2s ease; /* Reduzido de 0.3s */
 }
 
 .footer-links ul li a:hover {
     color: #0047AB;
-    padding-left: 5px;
 }
 
-.footer-contact {
-    flex: 1;
-    min-width: 250px;
+.footer-social-icons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.footer-social-icons .social-icon {
+    margin: 0 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease; /* Reduzido de 0.3s */
+}
+
+.footer-social-icons .social-icon:hover {
+    background-color: #0047AB;
+    transform: translateY(-3px);
 }
 
 .footer-contact p {
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
+    font-size: 1rem;
+    margin-bottom: 10px;
 }
 
-.footer-contact p i {
-    margin-right: 10px;
+.footer-contact a {
+    color: #FFFFFF;
+    transition: color 0.2s ease; /* Reduzido de 0.3s */
+}
+
+.footer-contact a:hover {
     color: #0047AB;
 }
 
-.footer-social {
+.copyright {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
     margin-top: 20px;
 }
 
-.footer-bottom {
-    padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    text-align: center; 
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
+/* Botão WhatsApp no Footer */
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #25D366;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-top: 15px;
+    box-shadow: 0 0 10px rgba(37, 211, 102, 0.3);
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-
-.footer-bottom p {
-    font-size: 0.9rem;
-    opacity: 0.7;
+.whatsapp-btn:hover {
+    background-color: #1ebe5d;
+    transform: translateY(-2px);
 }
 
-.footer-bottom-links a {
-    margin-left: 20px;
-    font-size: 0.9rem;
-    opacity: 0.7;
+.whatsapp-btn i {
+    font-size: 1.2rem;
 }
 
-.footer-bottom-links a:hover {
-    opacity: 1;
-    color: #0047AB;
-}
 
 /* Back to Top Button */
-
-/* Animações */
-.fade-in {
+#back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #0047AB;
+    color: #FFFFFF;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 71, 171, 0.3);
+    z-index: 999;
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    visibility: hidden;
+    transition: all 0.2s ease; /* Reduzido de 0.3s */
 }
 
-.fade-in.active {
+#back-to-top.active {
     opacity: 1;
-    transform: translateY(0);
+    visibility: visible;
 }
 
-.slide-in-left {
-    opacity: 0;
-    transform: translateX(-50px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.slide-in-left.active {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.slide-in-right {
-    opacity: 0;
-    transform: translateX(50px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.slide-in-right.active {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.zoom-in {
-    opacity: 0;
-    transform: scale(0.8);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.zoom-in.active {
-    opacity: 1;
-    transform: scale(1);
+#back-to-top:hover {
+    background-color: #003380;
+    transform: translateY(-3px);
 }
 
 .btn-flutuante-comprar {
     position: fixed;
     bottom: 30px;
     right: 30px;
+    z-index: 9999;
     background-color: #007BFF;
     color: white;
-    padding: 15px 25px;
+    padding: 14px 28px;
+    border: none;
     border-radius: 50px;
     font-size: 16px;
     font-weight: bold;
+    text-transform: uppercase;
     text-decoration: none;
-    box-shadow: 0 0 20px rgba(0, 123, 255, 1);
-    animation: pulsar 0.8s infinite;
-    z-index: 9999;
-    transition: background-color 0.3s;
+    box-shadow: 0 0 0 rgba(0, 123, 255, 0.4);
+    animation: pulse 2s infinite;
+    transition: background-color 0.3s ease;
 }
 
 .btn-flutuante-comprar:hover {
     background-color: #0056b3;
 }
 
-@keyframes pulsar {
+@keyframes pulse {
     0% {
-        box-shadow: 0 0 10px rgba(0, 123, 255, 0.6);
-        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.6);
     }
-
-    50% {
-        box-shadow: 0 0 40px rgba(0, 123, 255, 1);
-        transform: scale(1.08);
+    70% {
+        box-shadow: 0 0 0 15px rgba(0, 123, 255, 0);
     }
-
     100% {
-        box-shadow: 0 0 10px rgba(0, 123, 255, 0.6);
+        box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+    }
+}
+
+
+/* Animações */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
         transform: scale(1);
     }
 }
 
-/* Media Queries */
-@media (max-width: 1024px) {
-    .section-padding {
-        padding: 80px 0;
-    }
-
-    .hero-content h1 {
-        font-size: 3.5rem;
-    }
-
-    .timeline::before {
-        left: 30px;
-    }
-
-    .timeline-icon {
-        left: 30px;
-        transform: translateX(0);
-    }
-
-    .timeline-content {
-        width: calc(100% - 80px);
-        margin-left: 80px !important;
-    }
-
-    .timeline-item:nth-child(odd) .timeline-content::before,
-    .timeline-item:nth-child(even) .timeline-content::before {
-        left: -20px;
-        border-width: 10px 20px 10px 0;
-        border-color: transparent #FFFFFF transparent transparent;
-    }
-}
-
-@media (max-width: 768px) {
-
+/* Responsividade Geral */
+@media (max-width: 992px) {
     .desktop-nav,
     .social-icons {
         display: none;
@@ -1192,14 +1193,22 @@ img {
         display: flex;
     }
 
+    #header .container {
+        padding: 10px 20px;
+    }
+
     .hero-content h1 {
-        font-size: 2.8rem;
+        font-size: 3rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
     }
 
     .sobre-content,
-    .diferenciais-content,
-    .contato-content {
+    .diferenciais-content {
         flex-direction: column;
+        text-align: center;
     }
 
     .sobre-img,
@@ -1207,39 +1216,131 @@ img {
         margin-bottom: 30px;
     }
 
+    .sobre-img .img-container::before {
+        top: -10px;
+        left: -10px;
+    }
+
+    .timeline::before {
+        left: 20px;
+        transform: translateX(0);
+    }
+
+    .timeline-item {
+        margin-bottom: 40px;
+    }
+
+    .timeline-icon {
+        left: 20px;
+        transform: translateX(0);
+    }
+
+    .timeline-content {
+        width: calc(100% - 70px);
+        margin-left: auto;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content::before {
+        left: -20px;
+        right: auto;
+        border-width: 10px 20px 10px 0;
+        border-color: transparent #FFFFFF transparent transparent;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content::before {
+        left: -20px;
+        border-width: 10px 20px 10px 0;
+        border-color: transparent #FFFFFF transparent transparent;
+    }
+
+    .plano-card {
+        width: 80%;
+        margin: 0 auto 30px;
+    }
+
+    .planos-grid {
+        flex-direction: column;
+    }
+
     .plano-card.featured {
         transform: translateY(0);
     }
 
-
-
-    @media (max-width: 576px) {
-        .section-header h2 {
-            font-size: 2rem;
-        }
-
-        .hero-content h1 {
-            font-size: 2.2rem;
-        }
-
-        .hero-content p {
-            font-size: 1rem;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            font-size: 0.9rem;
-        }
-
-        .timeline-content {
-            padding: 20px;
-        }
-
-        .back-to-top {
-            bottom: 20px;
-            right: 20px;
-            width: 40px;
-            height: 40px;
-            font-size: 1rem;
-        }
+    .footer-links ul li {
+        margin-bottom: 10px;
     }
+}
+
+@media (max-width: 768px) {
+    .section-padding {
+        padding: 60px 0;
+    }
+
+    .section-header h1,
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+
+    .como-funciona-content p {
+        font-size: 1.2rem;
+    }
+
+    .diferencial-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .diferencial-item i {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .timeline-content {
+        padding: 20px;
+    }
+
+    .plano-card {
+        width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .logo h1 {
+        font-size: 1.2rem;
+    }
+
+    .mobile-nav {
+        width: 100%;
+    }
+
+    .plano-header h3 {
+        font-size: 1.2rem;
+    }
+
+    .preco {
+        font-size: 2.5rem;
+    }
+
+    .moeda {
+        font-size: 0.8rem;
+    }
+}
+
+
