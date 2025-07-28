@@ -66,18 +66,8 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // Efeito Parallax no Hero - desativado em dispositivos móveis para melhor desempenho
-    if (window.innerWidth > 768) {
-        window.addEventListener("scroll", function() {
-            const scrollPosition = window.scrollY;
-            const hero = document.getElementById("hero");
-            
-            if (hero) {
-                // Ajusta a posição do background conforme o scroll
-                hero.style.backgroundPosition = `center ${scrollPosition * 0.4}px`;
-            }
-        });
-    }
+
+
 
     // FAQ Acordeão
     faqItems.forEach(item => {
