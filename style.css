@@ -368,6 +368,7 @@ img {
     height: 100vh;
     min-height: 600px;
     background-image: url(image.png);
+    background: url(image.png);
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -376,9 +377,6 @@ img {
     align-items: center;
     color: #FFFFFF;
 }
-
-
-
 
 #hero .overlay {
     position: absolute;
